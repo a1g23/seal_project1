@@ -2,6 +2,9 @@
 // the base url
 const baseurl = "https://api.openbrewerydb.org/v1/breweries?by_state="
 
+// my div of all the outputs, so I can access in 
+
+const $divOutput = $(".output")
 
 // appData variable
 const breweryData = {
@@ -21,22 +24,7 @@ const stateArr = [
   ]
 
 // variable to hold the information on each brewery
-const brewInfo = []
-
-
-// function to get data and put it into the variable that holds the breweryData
-const getBreweries = () => {
-
-    fetch(baseurl)
-    .then((res) => res.json())
-    .then((data) => {
-        breweryData.data = data
-        console.log(breweryData.data)
-        createBrewOptions()
-    })
-}
-
-// we want all the states to appear in the main tag on the screen. for each state avail, we'll create a new div
+let brewInfo = []
 
 stateArr.forEach(el => {
     // create a div that has the el value in it
@@ -46,20 +34,38 @@ stateArr.forEach(el => {
     $div.text(el).addClass("eachstate")
     $main.append($div)
 
-    // add the event listener for the states that are populated, once clicked, a function will run to populate the right breweries
-    $div.on("click", function(event) {
-        const input = event.target
-        console.log(input)
+    // add the event listener for the states that are populated, once clicked, a function will run to update the url to only be looking at the right state of breweries
+    $div.on("click", function getState (event) {
+        const input = event.target.innerHTML
+        brewInfo = []
+        $divOutput.empty()
+        getBreweries(input)
+        
     })
     
-
-    // i only want one of each, no duplicates
 });
+
+// function to get data and put it into the variable that holds the breweryData
+const getBreweries = (state = "") => {
+    
+    fetch(`${baseurl}${state}`)
+    .then((res) => res.json())
+    .then((data) => {
+        breweryData.data = data
+        //console.log(breweryData.data)
+        createBrewOptions()
+    })
+}
+
+// we want all the states to appear in the main tag on the screen. for each state avail, we'll create a new div
+
+
 
 const createBrewOptions = () => {
     // variable to hold the an object of the data we want to show on the screen
     
     breweryData.data.map((info) => {
+        
         brewInfo.push( {
             name: info.name,
             address: `${info.city}, ${info.state}`,
@@ -68,12 +74,12 @@ const createBrewOptions = () => {
         })
         
     })
-    console.log(brewInfo)
+    //console.log(brewInfo)
 
     // for each of the brewInfo elements, we want to create a div with the information inside of it
     brewInfo.forEach((el) => {
         // adding a div with for each element and appending to the output div
-        const $divOutput = $(".output")
+        
         const $divEachBrew = $("<div>")
         $divEachBrew.addClass("eachBrew")
         $divOutput.append($divEachBrew)
@@ -114,7 +120,6 @@ const createBrewOptions = () => {
 
 
 
-getBreweries()
 
 
 
