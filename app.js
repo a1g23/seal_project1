@@ -37,9 +37,12 @@ stateArr.forEach(el => {
     // add the event listener for the states that are populated, once clicked, a function will run to update the url to only be looking at the right state of breweries
     $div.on("click", function getState (event) {
         const input = event.target.innerHTML
+        const $inputTitle = $("<h1>")
+        $inputTitle.text(`Breweries in ${input}`).addClass("stateChoice")
         brewInfo = []
         $divOutput.empty()
         getBreweries(input)
+        $divOutput.before($inputTitle)
         
     })
     
@@ -71,6 +74,7 @@ const createBrewOptions = () => {
             address: `${info.city}, ${info.state}`,
             phone: info.phone,
             website: info.website_url,
+            state: info.state,
         })
         
     })
@@ -83,6 +87,8 @@ const createBrewOptions = () => {
         const $divEachBrew = $("<div>")
         $divEachBrew.addClass("eachBrew")
         $divOutput.append($divEachBrew)
+
+        
         
 
         // adding a h1 to the new div with the name of the brewery
@@ -108,9 +114,6 @@ const createBrewOptions = () => {
 }
 
 
-// function to click on a state
-
-// we actually don't want to call the data in the for loop until we click on a state
 
 
 
