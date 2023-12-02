@@ -46,6 +46,13 @@ stateArr.forEach(el => {
     $div.text(el).addClass("eachstate")
     $main.append($div)
 
+    // add the event listener for the states that are populated, once clicked, a function will run to populate the right breweries
+    $div.on("click", function(event) {
+        const input = event.target
+        console.log(input)
+    })
+    
+
     // i only want one of each, no duplicates
 });
 
@@ -96,6 +103,8 @@ const createBrewOptions = () => {
 
 
 // function to click on a state
+
+// we actually don't want to call the data in the for loop until we click on a state
 
 
 
