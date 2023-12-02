@@ -1,0 +1,32 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .8em;
+    margin: 10%;
+    overflow: scroll;
+    justify-content: space-around;
+}
+
+.eachstate {
+    border: 2px solid black;
+    margin: 2px;
+    padding: 1px;
+    transition: border .5s;
+}
+
+.eachstate:hover {
+    border: 5px solid black;
+}
+
+.output {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10%;
+}
+
+.eachBrew {
+    border: 2px solid black;
+    text-align: center;
+}
+

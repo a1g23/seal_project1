@@ -62,12 +62,15 @@ const createBrewOptions = () => {
         
     })
     console.log(brewInfo)
+
     // for each of the brewInfo elements, we want to create a div with the information inside of it
     brewInfo.forEach((el) => {
         // adding a div with for each element and appending to the output div
         const $divOutput = $(".output")
         const $divEachBrew = $("<div>")
+        $divEachBrew.addClass("eachBrew")
         $divOutput.append($divEachBrew)
+        
 
         // adding a h1 to the new div with the name of the brewery
         const $h1EachBrew = $("<h1>")
@@ -78,10 +81,12 @@ const createBrewOptions = () => {
         const $h3EachBrewAdd = $("<h3>")
         $h3EachBrewAdd.text(el.address)
         $divEachBrew.append($h3EachBrewAdd)
+
         // adding the h3 of phone
         const $h3EachBrewPh = $("<h3>")
         $h3EachBrewPh.text(el.phone)
         $divEachBrew.append($h3EachBrewPh)
+
         // adding the h3 of website
         const $h3EachBrewWeb = $("<h3>")
         $h3EachBrewWeb.text(el.website)
@@ -90,8 +95,17 @@ const createBrewOptions = () => {
 }
 
 
+// function to click on a state
+
+
+
+
+
+
+
+
 
 getBreweries()
 
-// function to select a state
+
 
