@@ -12,12 +12,11 @@ main {
     display: flex;
     flex-wrap: wrap;
     font-size: .8em;
-    margin: 1%;
-    overflow: scroll;
+    width: min(90%, 800px);
+    margin-inline: auto;
     gap: 5px;
     justify-content: center;
     background-color:red;
-    background-size: cover;
 }
 
 .eachstate {
