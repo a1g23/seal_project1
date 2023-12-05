@@ -6,6 +6,14 @@ const baseurl = "https://api.openbrewerydb.org/v1/breweries?by_state="
 
 const $divOutput = $(".output")
 
+// variable for main
+
+const $main = $("main")
+
+//variable for state of brew
+
+const $stateofbrew = $(".stateofbrew")
+
 // appData variable
 const breweryData = {
     data: []
@@ -37,12 +45,20 @@ stateArr.forEach(el => {
     // add the event listener for the states that are populated, once clicked, a function will run to update the url to only be looking at the right state of breweries
     $div.on("click", function getState (event) {
         const input = event.target.innerHTML
-        const $inputTitle = $("<h1>")
-        $inputTitle.text(`Breweries in ${input}`).addClass("stateChoice")
+        let $inputTitle = $("<h1>")
+        
         brewInfo = []
         $divOutput.empty()
+        $stateofbrew.empty()
+        
+
+
+        
+        $inputTitle.text(`Breweries in ${input}`).addClass("stateChoice")
+        $stateofbrew.append($inputTitle)
         getBreweries(input)
-        $divOutput.before($inputTitle)
+        
+        
         
     })
     
