@@ -15,6 +15,7 @@ body {
     font-family: sans-serif;
     color: rgb(23, 135, 169);
     font-weight: 300;
+    font-size: 16px;
 }
 
 
@@ -24,15 +25,21 @@ main {
     justify-content: center;
     background-color:rgb(226, 77, 77);
     border: 2px solid black;
-    margin: 0 auto;
-    padding: 1rem;
-    max-width: 700px;
+    margin: 2rem;
+    padding: 0 auto;
+    font-size: 8px;
+    max-width: 500px;
+    overflow: scroll;
 }
 
-@media (max-width: 40em) {
+@media (min-width: 40em) {
     main {
-        height: 30vh;
-        overflow: scroll;
+        font-size: 12px;
+        margin: 0 auto;
+    }
+
+    .stateChoice {
+        font-size: 28px;
     }
 }
 
@@ -65,6 +72,7 @@ main {
     padding: 1rem;
     background-color: rgb(96, 103, 184);
     margin: 1rem;
+    font-size: 8px;
 }
 
 /* media queries */
