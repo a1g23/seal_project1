@@ -54,7 +54,7 @@ stateArr.forEach(el => {
 
 
         
-        $inputTitle.text(`Breweries in ${input}`).addClass("stateChoice")
+        $inputTitle.text(`Explore ${input}`).addClass("stateChoice")
         $stateofbrew.append($inputTitle)
         getBreweries(input)
         
